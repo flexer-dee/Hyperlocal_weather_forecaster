@@ -73,7 +73,7 @@ Open a terminal in the root directory and launch the server:
 
 ```bash
 uvicorn main:app
-
+```
 The backend will boot on `http://127.0.0.1:8000` and load the `.rds` models into memory.
 
 ### 2. Start the Frontend Dashboard
@@ -82,5 +82,5 @@ Open a **second, separate terminal**, install the Node dependencies, and start V
 ```bash
 yarn install
 yarn dev
-
+```
 Navigate to `http://localhost:5173` in your browser to interact with the dashboard.
