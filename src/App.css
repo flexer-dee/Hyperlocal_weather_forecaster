@@ -1,0 +1,191 @@
+/* =========================================
+   RESET & BASE STYLES
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   APP CONTAINER & DYNAMIC BACKGROUNDS
+   ========================================= */
+.app {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+  /* Smooth transition for when the Python backend triggers a new state */
+  transition: background-image 0.8s ease-in-out; 
+}
+
+/* =========================================
+   MAIN OVERLAY
+   ========================================= */
+main {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   SEVERE WEATHER ALERT (SVR TRIGGERED)
+   ========================================= */
+.alert-banner {
+  background-color: rgba(239, 68, 68, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* =========================================
+   LIVE WEATHER DATA DISPLAY (GLASSMORPHISM)
+   ========================================= */
+.weather-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.location-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.location-box .location {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.location-box .date {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+/* Temperature Simulator Slider */
+input[type=range] {
+  width: 100%;
+  accent-color: #4dabf7;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* =========================================
+   MAIN TEMPERATURE WIDGET
+   ========================================= */
+.weather-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.weather-box .temp {
+  color: #fff;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+}
+
+.weather-box .weather-condition {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   PREDICTIVE TREND CHART
+   ========================================= */
+.chart-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Custom Recharts Tooltip */
+.custom-tooltip {
+  background: rgba(25, 25, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.custom-tooltip .label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.custom-tooltip .temp {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 600px) {
+  .weather-display {
+    padding: 25px 20px;
+  }
+
+  .location-box .location {
+    font-size: 1.5rem;
+  }
+
+  .weather-box .temp {
+    font-size: 3.5rem;
+  }
+
+  .weather-box .weather-condition {
+    font-size: 1.2rem;
+  }
+}
